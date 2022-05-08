@@ -1,6 +1,6 @@
 import unittest
-from models import movie
-Movie = movie.Movie
+from app.models import movies
+Movie = movies.Movie
 
 class MovieTest(unittest.TestCase):
     def setUp(self):

@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 
-<head>
-    {% import 'macros.html' as macro%}  
-</head>
 
-<body>
-     <!-- Popular movie -->
-     <h3> Popular Movies</h3>
-     <ul>
-         {{ macro.displayMovieList(popular)}}
-     </ul>
-     <!-- Upcoming movie  -->
-     <h3> Upcoming Movies </h3>
-     <ul>
-         {{ macro.displayMovieList(upcoming)}}
-     </ul>
-     <!-- Now showing movie -->
-     <h3>Now Showing</h3>
-     <ul>
-         {{ macro.displayMovieList(now_showing)}}
-     </ul>
-</body>
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 
-</html>
+<!-- Content block -->
+{% block content %}
+
+<!-- Popular movie -->
+<h3> Popular Movies</h3>
+<ul>
+    {{ macro.displayMovieList(popular)}}
+</ul>
+<!-- Upcoming movie  -->
+<h3> Upcoming Movies </h3>
+<ul>
+    {{ macro.displayMovieList(upcoming)}}
+</ul>
+<!-- Now showing movie -->
+<h3>Now Showing</h3>
+<ul>
+    {{ macro.displayMovieList(now_showing)}}
+</ul>
+
+
+{% endblock%}
